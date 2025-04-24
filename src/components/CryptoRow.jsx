@@ -49,7 +49,7 @@ const CryptoRow = ({ coin, index }) => {
 
     return (
         <tr>
-            <Td>{index + 1}</Td>
+            <Td>{index}</Td>
             <Td>
                 <CoinInfo>
                     <Logo src={coin.image} alt={coin.name} />
