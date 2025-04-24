@@ -59,14 +59,6 @@ const TableHeader = styled.thead`
   color: #6c757d;
 `;
 
-const TableRow = styled.tr`
-  border-bottom: 1px solid #f0f0f0;
-  transition: background 0.2s;
-
-  &:hover {
-    background: #f8f9fa;
-  }
-`;
 
 const Th = styled.th`
   padding: 16px;
