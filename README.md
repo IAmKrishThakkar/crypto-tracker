@@ -52,7 +52,7 @@ The project follows a modular component-based architecture:
 
 ![Crypto Tracker Demo](/demos/React%20App%20-%20Personal%20-%20Microsoft_%20Edge%202025-04-24%2014-31-48.gif)
 
-For a live demo, visit: [Crypto Tracker Live](/demos/store.js%20-%20crypto-tracker%20-%20Visual%20Studio%20Code%202025-04-24%2014-34-24.mp4)
+For a live demo, visit: [Crypto Tracker Live](https://cryptopricetrackerkrish.netlify.app/)
 
 ---
 
