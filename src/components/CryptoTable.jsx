@@ -59,7 +59,6 @@ const TableHeader = styled.thead`
   color: #6c757d;
 `;
 
-
 const Th = styled.th`
   padding: 16px;
   text-align: left;
@@ -74,9 +73,37 @@ const StatusMessage = styled.div`
   color: #6c757d;
 `;
 
+const Pagination = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
+`;
+
+const PageButton = styled.button`
+  padding: 8px 16px;
+  margin: 0 4px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background: white;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &:hover {
+    background: #f8f9fa;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+`;
+
 const CryptoTable = () => {
   const { assets, status, error } = useSelector((state) => state.crypto);
   const [filter, setFilter] = useState('all');
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 10;
 
   const filteredAssets = [...assets].sort((a, b) => {
     if (filter === 'gainers') {
@@ -84,6 +111,18 @@ const CryptoTable = () => {
     }
     return 0;
   });
+
+  const totalPages = Math.ceil(filteredAssets.length / itemsPerPage);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const currentAssets = filteredAssets.slice(startIndex, startIndex + itemsPerPage);
+
+  const handleNextPage = () => {
+    if (currentPage < totalPages) setCurrentPage(currentPage + 1);
+  };
+
+  const handlePrevPage = () => {
+    if (currentPage > 1) setCurrentPage(currentPage - 1);
+  };
 
   if (status === 'loading') return <StatusMessage>🔄 Loading cryptocurrency data...</StatusMessage>;
   if (error) return <StatusMessage>❌ Error: {error}</StatusMessage>;
@@ -118,12 +157,24 @@ const CryptoTable = () => {
             </tr>
           </TableHeader>
           <tbody>
-            {filteredAssets.map((coin, index) => (
-              <CryptoRow key={coin.id} coin={coin} index={index} />
+            {currentAssets.map((coin, index) => (
+              <CryptoRow key={coin.id} coin={coin} index={startIndex + index + 1} />
             ))}
           </tbody>
         </StyledTable>
       </TableContainer>
+
+      <Pagination>
+        <PageButton onClick={handlePrevPage} disabled={currentPage === 1}>
+          Previous
+        </PageButton>
+        <span style={{ padding: '8px 16px' }}>
+          Page {currentPage} of {totalPages}
+        </span>
+        <PageButton onClick={handleNextPage} disabled={currentPage === totalPages}>
+          Next
+        </PageButton>
+      </Pagination>
     </Container>
   );
 };
