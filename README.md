@@ -56,6 +56,3 @@ For a live demo, visit: [Crypto Tracker Live](/demos/store.js%20-%20crypto-track
 
 ---
 
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
