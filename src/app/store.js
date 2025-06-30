@@ -1,3 +1,4 @@
+// app/store.js
 import { configureStore } from '@reduxjs/toolkit';
 import cryptoReducer from '../features/crypto/cryptoSlice';
 

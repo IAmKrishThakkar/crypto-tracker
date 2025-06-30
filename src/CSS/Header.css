@@ -1,0 +1,44 @@
+/* components/Header.css */
+.header {
+  background-color: var(--header-bg, #1e293b);
+  border-bottom: 1px solid #334155;
+  padding: 1rem 0;
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-section {
+  display: flex;
+  align-items: center;
+}
+
+.logo-circle {
+  background: linear-gradient(to right, #3b82f6, #8b5cf6);
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-right: 12px;
+}
+
+.logo-title {
+  font-size: 1.5rem;
+  background: linear-gradient(to right, #60a5fa, #a78bfa);
+  -webkit-background-clip: text;
+  color: transparent;
+  font-weight: bold;
+}
+
+body.light .header {
+  background-color: #f1f5f9;
+  border-color: #cbd5e1;
+}

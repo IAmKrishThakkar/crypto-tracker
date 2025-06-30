@@ -1,0 +1,18 @@
+/* components/CryptoRow.css */
+
+.coin-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.coin-logo {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+}
+
+.symbol {
+  font-size: 0.8rem;
+  color: #94a3b8;
+}
